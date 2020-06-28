@@ -1,13 +1,23 @@
 esphome:
   name: wh2_only_1
+  #Uncomment rows below if you are using a ESP8266 and remove the Sonoff Bridge rows
+  #platform: ESP8266
+  #board: esp01_1m
+  #The rows below are for Sonoff Bridge
   platform: ESP8266
-  board: esp01_1m
+  board: esp8285
+  arduino_version: 2.4.2
+  #The following row includes the custom component needed, place the wh2_rx.h file under the folder config/esphome/ 
   includes:
     - wh2_rx.h   
 wifi:
   ssid: ""
   password: ""
 
+# Enable fallback hotspot (captive portal) in case wifi connection fails
+ap:
+  ssid: "433MHzFineoffsetRx"
+  password: "xxx"
 
 captive_portal:
 
@@ -18,7 +28,7 @@ logger:
 api:
 
 ota:
-    safe_mode: True
+    #safe_mode: True
 
 
 sensor:
