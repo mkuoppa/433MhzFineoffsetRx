@@ -213,8 +213,10 @@ if (have_data_string==0) //avoid change sensor data during update.
 
     void setup() override 
 	{
-	Serial.end();	
-	attachInterrupt(3, ext_int_1, CHANGE);			  	  
+	Serial.end();
+	//For ESP8266,if you are using rx pin for reciever set to 3 below
+	//For Sonoff Bridge with direct HW patch use pin 4
+	attachInterrupt(4, ext_int_1, CHANGE);			  	  
     }
 
 
