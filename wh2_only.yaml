@@ -1,0 +1,57 @@
+esphome:
+  name: wh2_only_1
+  platform: ESP8266
+  board: esp01_1m
+  includes:
+    - wh2_rx.h   
+wifi:
+  ssid: ""
+  password: ""
+
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+    safe_mode: True
+
+
+sensor:
+- platform: custom
+  lambda: |-
+    auto my_sensor = new MyCustomSensor();
+    App.register_component(my_sensor);
+    return {my_sensor->sensor1, my_sensor->sensor2,my_sensor->sensor3,my_sensor->sensor4};
+
+  sensors:   
+  - name: "storage room temp"
+    unit_of_measurement: 'C'
+    accuracy_decimals: 1
+
+  - name: "storage room humidity"
+    unit_of_measurement: ' %'
+    accuracy_decimals: 0      
+
+  - name: "inside temp"
+    unit_of_measurement: 'C'
+    accuracy_decimals: 1
+
+  - name: "inside humidity"
+    unit_of_measurement: ' %'
+    accuracy_decimals: 0      
+      
+    
+text_sensor:
+- platform: custom
+  lambda: |-
+    auto last_sensor_data = new Last_sensor_data();
+    App.register_component(last_sensor_data);
+    return {last_sensor_data};
+
+  text_sensors:
+    name: "last_sensor_data"    
