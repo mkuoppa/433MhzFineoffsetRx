@@ -40,21 +40,24 @@ sensor:
 
   sensors:   
   - name: "storage room temp"
-    unit_of_measurement: 'C'
+    unit_of_measurement: "°C"
+    icon: "mdi:thermometer"
     accuracy_decimals: 1
 
   - name: "storage room humidity"
-    unit_of_measurement: ' %'
+    unit_of_measurement: "%"
+    icon: "mdi:water-percent"
     accuracy_decimals: 0      
 
   - name: "inside temp"
-    unit_of_measurement: 'C'
+    unit_of_measurement: "°C"
+    icon: "mdi:thermometer"
     accuracy_decimals: 1
 
   - name: "inside humidity"
-    unit_of_measurement: ' %'
-    accuracy_decimals: 0      
-      
+    unit_of_measurement: "%"
+    icon: "mdi:water-percent"
+    accuracy_decimals: 0
     
 text_sensor:
 - platform: custom
